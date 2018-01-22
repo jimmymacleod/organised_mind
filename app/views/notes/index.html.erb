@@ -1,0 +1,17 @@
+<h1>Notes_Index</h1>
+
+<div class="container">
+  <a href="/">Home</a> | <a href="/notes/new">New Note</a>
+  <div class="item" style="background-color: indianred;">
+    <% @notes.each do |note| %>
+
+       <p><a href="/notes/<%= note.id %>">LINK</a><br>
+          ID: <%= note.id %> <br>
+          Title: <%= note.title %> <br>
+          Details: <%= note.detail %> <br>
+          Image: <%= note.image %><br>
+          Assc Day: <%= note.day.date.strftime("%A %d %B, %Y") if note.day.present? %></p>
+
+    <% end %>
+  </div>
+</div>

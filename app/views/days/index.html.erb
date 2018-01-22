@@ -1,0 +1,25 @@
+<h1>Days_Index</h1>
+
+<div class="container">
+ <a href="/">Home</a>
+    <div class="item" style="background-color: mistyrose;">
+
+      <!--  I want to create a link that will take the user to the current day -->
+
+      <!-- The current day should be an empty database entry with the current date filled -->
+      <br>
+      <a href="/days/today">Today</a><br>
+
+       <% @days.each do |day| %>
+
+
+
+          <p><a href="/days/<%= day.id %>">LINK</a><br>
+             ID: <%= day.id %> <br>
+             Date: <%= day.date %> <br>
+             Jounral: <%= day.journal %> <br>
+             Image: <%= day.image %></p>
+
+       <% end %>
+     </div>
+</div>

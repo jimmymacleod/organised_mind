@@ -1,0 +1,18 @@
+<h1>Tasks_Index</h1>
+
+
+<div class="container">
+  <a href="/">Home</a> | <a href="/tasks/new">New Task</a>
+  <div class="item" style="background-color: limegreen;">
+    <% @tasks.each do |task| %>
+
+       <p><a href="/tasks/<%= task.id %>">LINK</a><br>
+          ID: <%= task.id %> <br>
+          Name: <%= task.name %> <br>
+          Description: <%= task.description %> <br>
+          Importance: <%= task.importance %>  <br>
+          Assc Day: <%= task.day.date.strftime("%A %d %B, %Y") if task.day.present? %></p></p>
+
+    <% end %>
+  </div>
+</div>

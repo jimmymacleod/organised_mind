@@ -1,0 +1,34 @@
+<h1>Days_Show_ID: <%= @day.id %></h1>
+
+<div class="container">
+ <a href="/">Home</a> | <a href="/days/new">New Day</a> | <a href="/days/<%= @day.id %>/edit">Edit Day</a> | <%= link_to "Delete Day", day_path(@day), method: :delete, data: { confirm: "Are you sure?"} %>
+    <div class="item" style="background-color: mistyrose;">
+
+          <p>ID: <%= @day.id %> <br>
+             Date: <%= @day.date %> <br>
+             Jounral: <%= @day.journal %> <br>
+             Image: <%= @day.image %></p>
+
+     </div>
+    <p>Associated Notes: <br>
+    <a href="/notes/<%= @day.id %>/new">New Note</a></p>
+    <div class="item" style="background-color:indianred;">
+          <% @day.notes.each do |n| %>
+            <p>Title: <%= n.title %> <br>
+               Detail: <%= n.detail %> <br>
+               Image: <%= n.image %> <br><br>
+            </p>
+          <% end %>
+    </div>
+
+    <p>Associated Tasks:<br>
+    <a href="/tasks/new">New Task</a></p>
+    <div class="item" style="background-color:limegreen;">
+          <% @day.tasks.each do |t| %>
+            <p>Name: <%= t.name %> <br>
+               Description: <%= t.description %> <br>
+               Importance: <%= t.importance %><br><br>
+            </p>
+          <% end %>
+
+    </div>

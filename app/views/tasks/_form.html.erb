@@ -1,0 +1,26 @@
+<%= form_for @task do |f| %>
+
+    <fieldset>
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+    </fieldset>
+
+    <fieldset>
+      <%= f.label :description %>
+      <%= f.text_field :description %>
+    </fieldset>
+
+    <fieldset>
+      <%= f.label :importance %>
+      <%= f.text_field :importance %>
+    </fieldset>
+
+    <fieldset>
+      <% options = options_from_collection_for_select(@days, 'id' , 'date') %>
+      <%= f.label :day_id %>
+      <%= f.select :day_id,  options, :include_blank => true %>
+    </fieldset>
+
+    <%= f.submit %>
+
+<% end %>

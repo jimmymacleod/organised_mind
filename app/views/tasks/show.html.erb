@@ -1,0 +1,14 @@
+<h1>Show_task_ID: <%= @task.id %></h1>
+
+<div class="container">
+  <a href="/">Home</a> | <a href="/tasks/new">New Task</a> | <a href="/tasks/<%= @task.id %>/edit">Edit Task</a> | <%= link_to "Delete Note", task_path(@task), method: :delete, data: { confirm: "Are you sure?"} %>
+  <div class="item" style="background-color: limegreen;">
+
+          ID: <%= @task.id %> <br>
+          Name: <%= @task.name %> <br>
+          Description: <%= @task.description %> <br>
+          Importance: <%= @task.importance %><br>
+          Assc day?: <%= @task.day.date if @task.day.present? %></p>
+
+  </div>
+</div>

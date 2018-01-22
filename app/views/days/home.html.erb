@@ -1,0 +1,37 @@
+<h1>Days_Home</h1>
+
+<div class="container">
+  <a href="/days">Days_Index</a>  | <a href="/days/new">New Day</a><br>
+  <a href="/tasks">Tasks_Index</a> | <a href="/tasks/new">New Task</a><br>
+  <a href="/notes">Notes_Index</a> | <a href="/notes/new">New Notes</a><br>
+  <div class="item" style="background-color: mistyrose;">
+    <% @days.reverse.each do |day| %>
+
+        <p>ID: <%= day.id %> <br>
+          Date: <%= day.date %> <br>
+          Jounral: <%= truncate(day.journal, :length => 80)%> <br>
+          Image: <%= truncate(day.image, :length => 60) %></p>
+
+    <% end %>
+  </div>
+  <div class="item" style="background-color: limegreen;">
+    <% @tasks.each do |task| %>
+
+        <p>ID: <%= task.id %> <br>
+          Name: <%= task.name %> <br>
+          Description: <%= truncate(task.description, :length => 60)%> <br>
+          Importance: <%= truncate(task.importance, :length => 60) %></p>
+
+    <% end %>
+  </div>
+  <div class="item" style="background-color: indianred;">
+    <% @notes.each do |note| %>
+
+        <p>ID: <%= note.id %> <br>
+          Title: <%= note.title %> <br>
+          Details: <%= truncate(note.detail, :length => 60) %> <br>
+          Image: <%= truncate(note.image, :length => 60) %></p>
+
+    <% end %>
+  </div>
+</div>

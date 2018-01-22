@@ -1,0 +1,20 @@
+<%= form_for @day do |f| %>
+
+    <fieldset>
+      <%= f.label :date %>
+      <%= f.date_field :date %>
+    </fieldset>
+
+    <fieldset>
+      <%= f.label :journal %>
+      <%= f.text_field :journal %>
+    </fieldset>
+
+    <fieldset>
+      <%= f.label :image %>
+      <%= f.text_field :image %>
+    </fieldset>
+
+    <%= f.submit %>
+
+<% end %>
