@@ -1,0 +1,26 @@
+
+
+
+
+      <h1>New_Note_For: <%= @day.date %></h1>
+          <div class="item" style="background-color: limegreen;">
+            <%= form_for @note, url: {action: "day_note_create"} do |f| %>
+
+                <fieldset>
+                  <%= f.label :title %>
+                  <%= f.text_field :title %>
+                </fieldset> <br>
+
+                <fieldset>
+                  <%= f.label :detail %>
+                  <%= f.text_field :detail %>
+                </fieldset> <br>
+
+                <fieldset>
+                  <%= f.label :image %> <br>
+                  <%= f.text_field :image %>
+                </fieldset> <br>
+
+                <%= f.submit %>
+            <% end %>
+      </div>

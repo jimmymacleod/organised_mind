@@ -5,26 +5,21 @@ class NotesController < ApplicationController
     @days = Day.all
   end
 
-  def day_note
+  def day_note_new
     @day = Day.find params[:id]
     @note = Note.create
-    # @note.id = "1X#{SecureRandom.hex(3)}"
-    # @note.title = "New Note"
-    # @note.detail = "Update Content"
-    # @note.image = "Image URL"
-    # @note.day_id = @day.id
-    # {:title => 'New Note', :detail => 'Update Content', :image => "Image URL", :day_id => @day.date}
-    @days = Day.all
-    @note.save
+    @note.day_id = @day.id
+  end
+
+  def day_note_create
+    @note = Note.create note_params
+    @note.day_id = Day.find params[:id]
+    redirect_to days_today_path
   end
 
   def create
-  @note = Note.create note_params
-    # if @note.day_id = nil
-      redirect_to notes_path
-    # else
-    #   redirect_to days_today_path
-    # end
+    Note.create note_params
+    redirect_to notes_path
   end
 
   def index

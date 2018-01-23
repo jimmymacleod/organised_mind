@@ -1,9 +1,14 @@
-<h1>Days_Today: <%= @day.id %></h1>
 
-<div class="container">
+<h1>Days_Today: <%= @day.id %></h1>
+<div class="row">
+
  <a href="/">Home</a> |
  <a href="/days">Days Index</a> |
  <a href="/days/<%= @day.id %>/edit">Edit Day</a> |
+
+ </div>
+
+ <div class="row">
 
     <div class="item" style="background-color: mistyrose;">
 
@@ -13,4 +18,5 @@
              Image: <%= @day.image %></p>
 
      </div>
-</div>
+
+    </div>
