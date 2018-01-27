@@ -4,10 +4,14 @@ Rails.application.routes.draw do
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
-    root 'days#home'
+    root 'users#new'
+
+    get '/home' => 'days#home'
 
     get '/days' => 'days#index'
     get '/days/today' => 'days#today'
+
+
 
     get '/days/:id/notes/new' => 'notes#day_note_new', as: 'day_note'
     post '/days/:id/notes' => 'notes#day_note_create'
@@ -17,6 +21,7 @@ Rails.application.routes.draw do
     delete '/login' => 'session#destroy'
 
     get '/profile' => 'pages#profile'
+
     get '/admin'   => 'pages#admin_party'
 
 

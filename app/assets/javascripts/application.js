@@ -11,5 +11,11 @@
 // about supported directives.
 //
 //= require rails-ujs
+
 //= require_tree .
 //= require jquery
+//= require jquery.slick
+
+//= require jquery2
+//= require jquery.slick
+//= require initialize

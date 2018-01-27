@@ -21,15 +21,15 @@ class ApplicationController < ActionController::Base
     private
     def fetch_user
 
-   # Retrieve the currently-logged-in user's data from the database
-   # (if they are actually logged in)
-   if session[:user_id].present?
-     @current_user = User.find_by id: session[:user_id]
-   end
+      # Retrieve the currently-logged-in user's data from the database
+      # (if they are actually logged in)
+      if session[:user_id].present?
+       @current_user = User.find_by id: session[:user_id]
+      end
 
-   # On the off change the session user ID does not exist in the
-   # database (i.e. we have re-seeded the 'users' table), delete the session
-   session[:user_id] = nil unless @current_user.present?
+      # On the off change the session user ID does not exist in the
+      # database (i.e. we have re-seeded the 'users' table), delete the session
+      session[:user_id] = nil unless @current_user.present?
  end
 
 

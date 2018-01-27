@@ -1,18 +1,40 @@
-<%= form_for @day do |f| %>
+
+<% if flash[:errors] %>
+  <strong>Please correct the following errors:</strong>
+  <ol>
+  <% flash[:errors].each do |e| %>
+    <li><%= e %></li>
+  <% end %>
+  </ol>
+<% end %>
+
+<%= form_for @day do |f|  %>
 
     <fieldset>
-      <%= f.label :date %>
-      <%= f.date_field :date %>
+    <div class="form-group mt-3" style="display:flex;">
+        <div class="col-sm-2 col-form-label"><%= f.label :date %></div>
+        <div class="col-sm-4">
+          <div><%= f.date_field :date %></div>
+        </div>
+    </div>
     </fieldset>
 
     <fieldset>
-      <%= f.label :journal %>
-      <%= f.text_field :journal %>
+    <div class="form-group" style="display:flex;">
+        <div class="col-sm-2 col-form-label"><%= f.label :journal %></div>
+        <div class="col-sm-8">
+          <div><%= f.text_area :journal, rows: "12", class: "col-sm-12" %></div>
+        </div>
+    </div>
     </fieldset>
 
     <fieldset>
-      <%= f.label :image %>
-      <%= f.text_field :image %>
+    <div class="form-group" style="display:flex;">
+        <div class="col-sm-2 col-form-label"><%= f.label :image %></div>
+        <div class="col-sm-4">
+          <div><%= f.text_field :image %></div>
+        </div>
+    </div>
     </fieldset>
 
     <%= f.submit %>

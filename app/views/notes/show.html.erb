@@ -1,7 +1,7 @@
 <h1>Notes_Show_Index: <%= @note.id %></h1>
 
 <div class="container">
-  <a href="/">Home</a> |
+  <a href="/home">Home</a> |
   <a href="/notes/new">New Note</a> |
   <a href="/notes/<%= @note.id %>/edit">Edit Note</a> |
   <%= link_to "Delete Note", note_path(@note), method: :delete, data: { confirm: "Are you sure?"} %>

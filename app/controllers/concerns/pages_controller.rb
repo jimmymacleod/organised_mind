@@ -10,6 +10,8 @@ class PagesController < ApplicationController
 
     def profile
       # only visible to logged-in users
+      # @user = User.find_by params[session[:user_id]]
+
     end
 
     def admin_party

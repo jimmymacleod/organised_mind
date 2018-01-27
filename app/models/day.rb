@@ -6,5 +6,5 @@ class Day < ApplicationRecord
 
   validates :date, :journal, :presence => true
   validates :journal, :length => { :minimum => 4 }
-  validates :date, :uniqueness => true
+  validates :date, :uniqueness => {:scope => :user_id}
 end

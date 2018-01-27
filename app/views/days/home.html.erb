@@ -1,9 +1,44 @@
-<h1>Days_Home</h1>
+
 
 <div class="container">
-  <a href="/days">Days_Index</a>  | <a href="/days/new">New Day</a><br>
-  <a href="/tasks">Tasks_Index</a> | <a href="/tasks/new">New Task</a><br>
-  <a href="/notes">Notes_Index</a> | <a href="/notes/new">New Notes</a><br>
+
+  <h1>Days_Home</h1>
+
+  <div class="row">
+    <div class="col-sm-4">
+    <button type="button" class="btn btn-outline-primary big-button" style="height: 100%; width: 100%;"><a href="/days/today">Today</a></button>
+
+
+
+
+    </div>
+    <div class="col-sm-8">
+      <div>
+      <img src="https://source.unsplash.com/kYA0DBZnLOY" alt="" style="width: 100%; height: 100%; ">
+      </div>
+    </div>
+
+  </div>
+
+  <div class="row top-buffer" style="margin-top: 20px;" >
+      <div class="col-sm-6">
+        </div>
+  <div class=" col-sm-6">
+        <button type="button" class="btn btn-outline-primary btn-sm"><a href="/days">Days</a></button>
+        |
+        <button type="button" class="btn btn-outline-success btn-sm"><a href="/tasks">Tasks</a></button>
+        <button type="button" class="btn btn-outline-success btn-sm"><a href="/tasks/new">New Task</a></button>
+        |
+        <button type="button" class="btn btn-outline-warning btn-sm"><a href="/notes">Notes</a></button>
+        <button type="button" class="btn btn-outline-warning btn-sm"><a href="/notes/new">New Note</a></button>
+    </div>
+  </div>
+
+
+
+<!--
+
+
   <div class="item" style="background-color: mistyrose;">
     <% @days.reverse.each do |day| %>
 
@@ -33,5 +68,5 @@
           Image: <%= truncate(note.image, :length => 60) %></p>
 
     <% end %>
-  </div>
+  </div> -->
 </div>

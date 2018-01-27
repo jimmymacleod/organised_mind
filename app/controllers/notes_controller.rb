@@ -2,8 +2,26 @@ class NotesController < ApplicationController
 
   def new
     @note = Note.new
-    @days = Day.all
+    @days = @current_user.days
   end
+
+  def create
+    note = Note.create note_params
+    note.user = @current_user
+
+    if note.save
+      redirect_to notes_path
+    else
+      # day did not get saved, show an errors
+      flash[:errors] = note.errors.full_messages
+      @note = Note.new days_params   # prefill form with values already entered
+      render :new
+    end
+  end
+
+# --------------------------------------------------
+  #  Is this working?
+  #  Not onto this yet
 
   def day_note_new
     @day = Day.find params[:id]
@@ -17,14 +35,13 @@ class NotesController < ApplicationController
     redirect_to days_today_path
   end
 
-  def create
-    Note.create note_params
-    redirect_to notes_path
-  end
+  # ------------------
 
   def index
-    @notes = Note.all
+    @notes = @current_user.notes
   end
+
+  # ------------------
 
   def show
     @note = Note.find params[:id]
@@ -32,7 +49,7 @@ class NotesController < ApplicationController
 
   def edit
     @note = Note.find params[:id]
-    @days = Day.all
+    @days = @current_user.days
   end
 
   def update
@@ -53,7 +70,7 @@ class NotesController < ApplicationController
 
   private
   def note_params
-    params.require(:note).permit(:title, :detail, :image, :day_id)
+    params.require(:note).permit(:title, :detail, :image, :day_id, :user_id)
   end
 
 end

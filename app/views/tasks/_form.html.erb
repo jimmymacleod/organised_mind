@@ -1,25 +1,42 @@
 <%= form_for @task do |f| %>
 
-    <fieldset>
-      <%= f.label :name %>
-      <%= f.text_field :name %>
-    </fieldset>
 
-    <fieldset>
-      <%= f.label :description %>
-      <%= f.text_field :description %>
-    </fieldset>
+      <fieldset>
+      <div class="form-group mt-3" style="display:flex;">
+          <div class="col-sm-2 col-form-label"><%= f.label :name %></div>
+          <div class="col-sm-4">
+            <div><%= f.text_field :name %></div>
+          </div>
+      </div>
+      </fieldset>
 
-    <fieldset>
-      <%= f.label :importance %>
-      <%= f.text_field :importance %>
-    </fieldset>
+      <fieldset>
+      <div class="form-group" style="display:flex;">
+          <div class="col-sm-2 col-form-label"><%= f.label :description %></div>
+          <div class="col-sm-8">
+            <div><%= f.text_area :description, rows: "6", class: "col-sm-6" %></div>
+          </div>
+      </div>
+      </fieldset>
 
-    <fieldset>
-      <% options = options_from_collection_for_select(@days, 'id' , 'date') %>
-      <%= f.label :day_id %>
-      <%= f.select :day_id,  options, :include_blank => true %>
-    </fieldset>
+      <fieldset>
+      <div class="form-group" style="display:flex;">
+          <div class="col-sm-2 col-form-label"><%= f.label :importance %></div>
+          <div class="col-sm-4">
+            <div><%= f.text_field :importance %></div>
+          </div>
+      </div>
+      </fieldset>
+
+      <fieldset>
+      <div class="form-group" style="display:flex;">
+          <% options = options_from_collection_for_select(@days, 'id' , 'date') %>
+          <div class="col-sm-2 col-form-label"><%= f.label :day_id %></div>
+          <div class="col-sm-4">
+            <div><%= f.select :day_id, options, :include_blank => true %></div>
+          </div>
+      </div>
+      </fieldset>
 
     <%= f.submit %>
 

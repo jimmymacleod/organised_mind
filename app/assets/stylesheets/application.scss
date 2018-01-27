@@ -1,13 +1,22 @@
-* {
-  font-family: "Courier New";
-  font-weight: bold;
+@import "slick";
+@import "slick-theme";
+
+.scroller {
+  div {
+    text-align: center;
+    font-size: 30px;
+  }
 }
 
-.container {
-  width: 100%;
-  margin: 50px;
+.slick-prev::before,
+.slick-next::before {
+  color: #000;
 }
 
-.item {
-  width: 700px;
+.slick-next {
+  right: -5px;
+}
+
+.slick-prev {
+  left: -5px;
 }
