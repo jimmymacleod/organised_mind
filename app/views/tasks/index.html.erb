@@ -27,9 +27,11 @@
 
         <% day.tasks.each do |task| %>
 
+              <a href="/tasks/<%= task.id %>">
               <div class="index-item" style="background-color:rgba(66, 244, 107, 0.5);">
               <div class="item-info"><h3><%= task.name %></h3><h6>   <%= task.day.date %></h6></div>
               </div>
+              </a>
 
         <% end %>
 

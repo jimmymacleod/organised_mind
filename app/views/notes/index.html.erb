@@ -13,9 +13,9 @@
 
 <% @misc.each do |note| %>
 
-  <div class="index-item" style="background-image: url(<%= note.image %>); background-size: cover; ">
+    <a href="/notes/<%= note.id %>"></a><div class="index-item" style="background-image: url(<%= note.image %>); background-size: cover; ">
     <div class="item-info"><h3><%= note.title %></h3><h6><%= note.created_at %></h6></div>
-  </div>
+  </div></a>
 
 <% end %>
 
@@ -31,9 +31,10 @@
 
         <% day.notes.each do |note| %>
 
+              <a href="/notes/<%= note.id %>">
               <div class="index-item" style="background-image: url(<%= note.image %>); background-size: cover; ">
               <div class="item-info"><h3><%= note.title %></h3><h6>   <%= note.day.date %></h6></div>
-              </div>
+              </div></a>
 
         <% end %>
 

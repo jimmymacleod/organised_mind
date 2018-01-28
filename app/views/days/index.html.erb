@@ -4,16 +4,13 @@
 
   <h1>Days_Index</h1>
 
-   <%= link_to "Home", home_path, class: "m-3 d-block" %>
-
-   <%= link_to "Today", days_today_path, class: "m-3 d-block" %>
-
-   <%= link_to 'New Day', new_day_path, class: "m-3 d-block" %>
-
+    <div class="m-3">
+   <%= link_to "Home", home_path %> | <%= link_to "Today", days_today_path %> | <%= link_to 'New Day', new_day_path%>
+    </div>  
 
     <% if @days.present? %>
 
-        <div class="rollerdex">
+        <div class="rollerdex m-3">
 
           <% @days.each do |day| %>
 
