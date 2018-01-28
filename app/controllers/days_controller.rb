@@ -3,9 +3,13 @@ class DaysController < ApplicationController
   before_action :check_if_logged_in, only: [:new, :create, :edit, :update, :destroy]
 
   def home
-    @days = @current_user.days
-    @tasks = @current_user.tasks
-    @notes = @current_user.notes
+    if @current_user
+      @days = @current_user.days
+      @tasks = @current_user.tasks
+      @notes = @current_user.notes
+    else
+      redirect_to login_path
+    end
   end
 
   def today

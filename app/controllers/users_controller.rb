@@ -9,7 +9,7 @@ class UsersController < ApplicationController
     if user.persisted?
       # user successfully created, redirect to profile page for this user
       session[:user_id] = user.id
-      redirect_to user
+      redirect_to home_path
     else
       # error creating user (probably a validation error)
       flash[:errors] = user.errors.full_messages

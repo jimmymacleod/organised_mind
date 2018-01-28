@@ -14,7 +14,7 @@
 <% @misc.each do |note| %>
 
   <div class="index-item" style="background-image: url(<%= note.image %>); background-size: cover; ">
-    <div class="item-info"><h3><%= note.title %></h3><h6>   <%= note.created_at %></h6></div>
+    <div class="item-info"><h3><%= note.title %></h3><h6><%= note.created_at %></h6></div>
   </div>
 
 <% end %>
@@ -24,8 +24,6 @@
 
 
 <% @days.each do |day| %>
-
-
 
       <h3><%= day.date.strftime("%d %B %Y")  %></h3><hr>
 
@@ -40,5 +38,5 @@
         <% end %>
 
       </div>
-      
+
 <% end %>

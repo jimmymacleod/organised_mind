@@ -1,87 +1,31 @@
 
 
-<div class="container">
-
-    <h1>Days_Index</h1>
-
-
-  <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" style="margin-top: 20px">
-  <div class="carousel-inner">
-
-
-     <div class="carousel-item active">
-       <div class="d-block w-100" style="height: 400px;">
-          <button type="button" class="btn btn-secondary-outline big-button" style="height: 100%; width: 20%;"><a href="/days/today">Today</a></button>
-       </div>
-     </div>
-
-
-
-
-
-
-    <% if @days.present? %>
-     <% @days.each do |day| %>
-
-     <div class="carousel-item">
-       <div class="d-block w-100" style="height: 400px">
-
-         <p><a href="/days/<%= day.id %>">LINK</a><br>
-            ID: <%= day.id %> <br>
-            Date: <%= day.date %> <br>
-            Jounral: <%= day.journal %> <br>
-            Image: <%= day.image %></p>
-
-       </div>
-     </div>
-
-     <% end %>
-   <% end %>
-
-
-
-    <!-- <div class="carousel-item active">
-      <div class="d-block w-100" style="height: 400px">
-      <%= @days.first.date %>
-      </div>
-    </div> -->
-  </div>
-
-  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
-  </a>
-</div>
-
-
-
 
 
   <h1>Days_Index</h1>
- <a href="/home">Home</a>
-    <div class="item" style="background-color: mistyrose;">
 
-      <!--  I want to create a link that will take the user to the current day -->
+   <%= link_to "Home", home_path, class: "m-3 d-block" %>
 
-      <!-- The current day should be an empty database entry with the current date filled -->
-      <br>
-      <a href="/days/today">Today</a><br><br>
-      <% if @days.present? %>
-       <% @days.each do |day| %>
+   <%= link_to "Today", days_today_path, class: "m-3 d-block" %>
+
+   <%= link_to 'New Day', new_day_path, class: "m-3 d-block" %>
 
 
+    <% if @days.present? %>
 
-          <p><a href="/days/<%= day.id %>">LINK</a><br>
-             ID: <%= day.id %> <br>
-             Date: <%= day.date %> <br>
-             Jounral: <%= day.journal %> <br>
-             Image: <%= day.image %></p>
+        <div class="rollerdex">
 
-       <% end %>
-     <% end %>
-     </div>
-</div>
+          <% @days.each do |day| %>
+
+                    <a href="/days/<%= day.id %>">
+                    <div class="index-item" style="background-image: url(<%= day.image %>); background-size: cover; ">
+                    <div class="item-info"><h3><%= day.date.strftime("%d %B %Y") %></h3></div>
+                    </div>
+                    </a>
+
+          <% end %>
+
+          </div>
+
+
+    <% end %>

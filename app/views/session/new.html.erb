@@ -1,15 +1,38 @@
 <h1>Login</h1>
 
-<%= flash[:error] %>
+
+<% if flash[:errors] %>
+  <strong>Please correct the following errors:</strong>
+  <ol>
+  <% flash[:errors].each do |e| %>
+    <li><%= e %></li>
+  <% end %>
+  </ol>
+<% end %>
 
 <%= form_tag login_path do %>
 
-  <%= label_tag :email %>
-  <%= email_field_tag :email, nil %>
+<form class="m-3">
 
-  <%= label_tag :password %>
-  <%= password_field_tag :password, nil %>
+        <fieldset>
+          <div class="form-group" style="display:flex;">
+            <div class="col-sm-4 col-form-label"><%= label_tag :email %></div>
+            <div class="col-sm-6">
+              <div><%= email_field_tag :email, nil %> </div>
+            </div>
+          </div>
+          </fieldset>
 
-  <%= submit_tag 'Login' %>
+          <fieldset>
+          <div class="form-group" style="display:flex;">
+              <div class="col-sm-4 col-form-label"><%= label_tag :password %></div>
+              <div class="col-sm-6">
+                <div><%= password_field_tag :password, nil%></div>
+              </div>
+          </div>
+        </fieldset>
+      <%= submit_tag 'Login'%>
+
+</form>
 
 <% end %>
