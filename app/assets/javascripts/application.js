@@ -14,7 +14,3 @@
 
 //= require_tree .
 //= require jquery
-//= require jquery.slick
-
-//= require initialize
-//= require jquery_ujs
