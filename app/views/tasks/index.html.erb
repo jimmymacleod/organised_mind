@@ -1,18 +1,38 @@
 <h1>Tasks_Index</h1>
 
+<a href="/home">Home</a> | <a href="/tasks/new">New Task</a>
 
-<div class="container">
-  <a href="/home">Home</a> | <a href="/tasks/new">New Task</a>
-  <div class="item" style="background-color: limegreen;">
-    <% @tasks.each do |task| %>
+<div class="row">
+  <div class="col-md-12">
 
-       <p><a href="/tasks/<%= task.id %>">LINK</a><br>
-          ID: <%= task.id %> <br>
-          Name: <%= task.name %> <br>
-          Description: <%= task.description %> <br>
-          Importance: <%= task.importance %>  <br>
-          Assc Day: <%= task.day.date.strftime("%A %d %B, %Y") if task.day.present? %></p></p>
+<h3>Miscellaneous</h3>
+<div class="rollerdex">
 
-    <% end %>
+<% @misc.each do |task| %>
+
+  <div class="index-item" style="background-color:rgba(66, 244, 107, 0.5);">
+    <div class="item-info"><h3><%= task.name %></h3><h6>   <%= task.created_at %></h6></div>
   </div>
+
+<% end %>
+
 </div>
+
+<% @days.each do |day| %>
+
+
+      <h3><%= day.date.strftime("%d %B %Y")  %></h3><hr>
+
+      <div class="rollerdex">
+
+        <% day.tasks.each do |task| %>
+
+              <div class="index-item" style="background-color:rgba(66, 244, 107, 0.5);">
+              <div class="item-info"><h3><%= task.name %></h3><h6>   <%= task.day.date %></h6></div>
+              </div>
+
+        <% end %>
+
+      </div>
+
+<% end %>

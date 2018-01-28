@@ -21,6 +21,8 @@ class TasksController < ApplicationController
 
   def index
     @tasks = @current_user.tasks
+    @days = @current_user.days.where.not(days: [])
+    @misc = @current_user.tasks.where day_id: nil
   end
 
   def show

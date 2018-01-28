@@ -14,7 +14,7 @@ class NotesController < ApplicationController
     else
       # day did not get saved, show an errors
       flash[:errors] = note.errors.full_messages
-      @note = Note.new days_params   # prefill form with values already entered
+      @note = Note.new note_params   # prefill form with values already entered
       render :new
     end
   end
@@ -38,7 +38,9 @@ class NotesController < ApplicationController
   # ------------------
 
   def index
+    @days = @current_user.days
     @notes = @current_user.notes
+    @misc = @current_user.notes.where day_id: nil 
   end
 
   # ------------------
